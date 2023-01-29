@@ -23,10 +23,10 @@ Item {
             anchors.rightMargin: 20
             anchors.leftMargin: 20
 
-//            onClicked:
-//            {
-//                serial.openSerialPort()
-//            }
+            onClicked:
+            {
+                serial.openSerialPort()
+            }
         }
 
         InSettingsButton
@@ -40,10 +40,10 @@ Item {
             anchors.rightMargin: 20
             anchors.leftMargin: 20
 
-//            onClicked:
-//            {
-//                serial.closeSerialPort()
-//            }
+            onClicked:
+            {
+                serial.closeSerialPort()
+            }
         }
 
         InSettingsComboBox
@@ -68,6 +68,7 @@ Item {
                 left: parent.left
                 leftMargin: 20
             }
+
         }
     }
 }

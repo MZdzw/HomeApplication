@@ -12,10 +12,10 @@ Rectangle
         id: baudRateSlider
         width: parent.width
         height: 60
-        property color strapColor: Qt.rgba(0.3, 0, 0.7, 1)
+        property color strapColor: Qt.rgba(1, 0, 0.0, 1)
         stepSize: 1
         to: 7
-        value: 3
+        value: 7
 
         property bool showValue: true
 
@@ -64,41 +64,49 @@ Rectangle
                 {
                     baudRateProgressBar.value = 1200
                     baudRateSlider.strapColor = Qt.rgba(0, 0, 1, 1)
+                    serial.setBaudRate(baudRateProgressBar.value)
                 }
                 else if(baudRateSlider.value === 1)
                 {
                     baudRateProgressBar.value = 2400
                     baudRateSlider.strapColor = Qt.rgba(0.1, 0, 0.9, 1)
+                    serial.setBaudRate(baudRateProgressBar.value)
                 }
                 else if(baudRateSlider.value === 2)
                 {
                     baudRateProgressBar.value = 4800
                     baudRateSlider.strapColor = Qt.rgba(0.2, 0, 0.8, 1)
+                    serial.setBaudRate(baudRateProgressBar.value)
                 }
                 else if(baudRateSlider.value === 3)
                 {
                     baudRateProgressBar.value = 9600
                     baudRateSlider.strapColor = Qt.rgba(0.3, 0, 0.7, 1)
+                    serial.setBaudRate(baudRateProgressBar.value)
                 }
                 else if(baudRateSlider.value === 4)
                 {
                     baudRateProgressBar.value = 19200
                     baudRateSlider.strapColor = Qt.rgba(0.4, 0, 0.6, 1)
+                    serial.setBaudRate(baudRateProgressBar.value)
                 }
                 else if(baudRateSlider.value === 5)
                 {
                     baudRateProgressBar.value = 38400
                     baudRateSlider.strapColor = Qt.rgba(0.6, 0, 0.4, 1)
+                    serial.setBaudRate(baudRateProgressBar.value)
                 }
                 else if(baudRateSlider.value === 6)
                 {
                     baudRateProgressBar.value = 57600
                     baudRateSlider.strapColor = Qt.rgba(0.8, 0, 0.2, 1)
+                    serial.setBaudRate(baudRateProgressBar.value)
                 }
                 else if(baudRateSlider.value === 7)
                 {
                     baudRateProgressBar.value = 115200
                     baudRateSlider.strapColor = Qt.rgba(1, 0, 0, 1)
+                    serial.setBaudRate(baudRateProgressBar.value)
                 }
             }
     }
@@ -112,7 +120,7 @@ Rectangle
         width: parent.width
         height: parent.height - anchors.topMargin - baudRateSlider.height
         to: 115200
-        value: 9600
+        value: 115200
 
 
 
@@ -122,8 +130,6 @@ Rectangle
             implicitHeight: 26
             color: "#e6e6e6"
             radius: 3
-
-
         }
         contentItem: Item {
             implicitWidth: 200

@@ -12,5 +12,7 @@
         <file>UI/MyComponents/InSettingsButton.qml</file>
         <file>UI/MyComponents/InSettingsComboBox.qml</file>
         <file>UI/MyComponents/InSettingsBaudRate.qml</file>
+        <file>UI/Assets/chart.png</file>
+        <file>UI/chartPage.qml</file>
     </qresource>
 </RCC>

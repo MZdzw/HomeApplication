@@ -3,6 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import "MyComponents"
 
+
 Window {
     id: mainWindow
     width: 1000
@@ -52,10 +53,59 @@ Window {
 
                 ToggleButton
                 {
+                    id: toggleBtn
                     width: 60
                     height: 60
 
                     onClicked: animationMenu.running = true
+                }
+
+                Rectangle
+                {
+                    id: appActions
+                    color: "#1c1d20"
+                    anchors.right: parent.right
+                    anchors.left: toggleBtn.right
+                    anchors.top: parent.top
+                    anchors.bottom: serialPortMsg.top
+
+                    Text
+                    {
+                        id: timeText
+                        text: Qt.formatTime(new Date(),"hh:mm")
+                        color: "white"
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                }
+
+                Rectangle
+                {
+                    id: serialPortMsg
+                    height: parent.height/2
+                    color: "#b9393c43"
+                    anchors.right: parent.right
+                    anchors.left: toggleBtn.right
+                    anchors.bottom: parent.bottom
+                    Text
+                    {
+                        id: serialPortData
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 15
+                        color: "white"
+                        text: "Hello"
+
+                        Connections
+                        {
+                            target: serial
+
+                            function onIsMsgRcvChanged(data1)
+                            {
+                                serialPortData.text = data1
+                            }
+                        }
+                    }
                 }
             }
 
@@ -104,7 +154,7 @@ Window {
 
                 SideButton
                 {
-                    id: homeButton
+                    id: homeBtn
                     btnIconSource: "../Assets/home.png"
                     width: sideBar.width
                     text: qsTr("Home")
@@ -113,7 +163,8 @@ Window {
 
                     onClicked:
                     {
-                        homeButton.isActiveMenu = true
+                        homeBtn.isActiveMenu = true
+                        chartBtn.isActiveMenu = false
                         settingsBtn.isActiveMenu = false
                         stackView.push(Qt.resolvedUrl("qrc:/UI/homePage.qml"))
 
@@ -133,12 +184,32 @@ Window {
 
                     onClicked:
                     {
-                        homeButton.isActiveMenu = false
+                        homeBtn.isActiveMenu = false
+                        chartBtn.isActiveMenu = false
                         settingsBtn.isActiveMenu = true
                         stackView.push(Qt.resolvedUrl("qrc:/UI/settingsPage.qml"))
                     }
                 }
 
+                SideButton
+                {
+                    id: chartBtn
+                    btnIconSource: "../Assets/chart.png"
+                    text: qsTr("Chart")
+
+                    width: sideBar.width
+                    anchors.left: parent.left
+                    anchors.top: homeBtn.bottom
+                    isActiveMenu: false
+
+                    onClicked:
+                    {
+                        homeBtn.isActiveMenu = false
+                        chartBtn.isActiveMenu = true
+                        settingsBtn.isActiveMenu = false
+                        stackView.push(Qt.resolvedUrl("qrc:/UI/chartPage.qml"))
+                    }
+                }
             }
         }
     }
