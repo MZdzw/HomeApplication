@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>UI/main.qml</file>
+        <file>UI/Assets/home.png</file>
+        <file>UI/Assets/settings.png</file>
+        <file>UI/Assets/toggle.png</file>
+        <file>UI/homePage.qml</file>
+        <file>UI/settingsPage.qml</file>
+        <file>UI/MyComponents/SideButton.qml</file>
+        <file>UI/MyComponents/ToggleButton.qml</file>
+        <file>UI/Assets/custom_button.png</file>
+        <file>UI/MyComponents/InSettingsButton.qml</file>
+        <file>UI/MyComponents/InSettingsComboBox.qml</file>
+        <file>UI/MyComponents/InSettingsBaudRate.qml</file>
+    </qresource>
+</RCC>
